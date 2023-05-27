@@ -4,7 +4,7 @@ import { SearchFlights, ListFlights, Result } from "./pages";
 
 const getRoutes = () => {
   const root = "";
-  const listFlights = `${root}/list-flight`;
+  const listFlights = `${root}/list`;
   const result = `${root}/result`;
 
   return {
