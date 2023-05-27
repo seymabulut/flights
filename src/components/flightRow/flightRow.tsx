@@ -9,17 +9,21 @@ import FareCard from "../fareCard/fareCard";
 
 interface FlightRowProps {
   flight: Flight;
+  code: boolean;
 }
 
-const FlightRow: FC<FlightRowProps> = ({ flight }) => {
+const FlightRow: FC<FlightRowProps> = ({ flight, code }) => {
   const navigate = useNavigate();
   const [fare, setFare] = useState<string>("");
 
   const getDisplayPrice = (subcategories: Subcategory[]) => {
-    const display_price = subcategories.find(
+    const price = subcategories.find(
       (subcategory: Subcategory) => subcategory.brandCode === "ecoFly"
-    )?.price;
-    return `${display_price?.currency} ${display_price?.amount}`;
+    )?.price?.amount;
+    const currency = subcategories.find(
+      (subcategory: Subcategory) => subcategory.brandCode === "ecoFly"
+    )?.price?.currency;
+    return { currency, price };
   };
 
   const handleFareChange = (event: any) => {
@@ -30,6 +34,10 @@ const FlightRow: FC<FlightRowProps> = ({ flight }) => {
     localStorage.setItem("status", status);
     localStorage.setItem("price", price);
     navigate(routes.result);
+  };
+
+  const discount = (price: number) => {
+    return price / 2;
   };
 
   return (
@@ -67,9 +75,29 @@ const FlightRow: FC<FlightRowProps> = ({ flight }) => {
               />
               <div className="fare-price">
                 <span className="fare-price__text">Yolcu Başına</span>
-                <span className="fare-price__price">
-                  {getDisplayPrice(flight.fareCategories[key].subcategories)}
-                </span>
+                {code && key === "ECONOMY" ? (
+                  <span className="fare-price__price">
+                    {
+                      getDisplayPrice(flight.fareCategories[key].subcategories)
+                        .currency
+                    }
+                    {discount(
+                      getDisplayPrice(flight.fareCategories[key].subcategories)
+                        .price as number
+                    )}
+                  </span>
+                ) : (
+                  <span className="fare-price__price">
+                    {
+                      getDisplayPrice(flight.fareCategories[key].subcategories)
+                        .currency
+                    }
+                    {
+                      getDisplayPrice(flight.fareCategories[key].subcategories)
+                        .price
+                    }
+                  </span>
+                )}
               </div>
             </div>
           )
@@ -78,7 +106,12 @@ const FlightRow: FC<FlightRowProps> = ({ flight }) => {
       <div className="fare-category">
         {fare &&
           flight.fareCategories[fare].subcategories.map((item: Subcategory) => (
-            <FareCard subcategory={item} select={handleSelect} />
+            <FareCard
+              subcategory={item}
+              code={code}
+              fare={fare}
+              select={handleSelect}
+            />
           ))}
       </div>
     </div>

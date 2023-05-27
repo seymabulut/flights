@@ -5,9 +5,10 @@ import FlightRow from "../flightRow/flightRow";
 
 interface FlightListProps {
   flights: Flight[];
+  code: boolean;
 }
 
-const ListFlightTable: FC<FlightListProps> = ({ flights }) => {
+const ListFlightTable: FC<FlightListProps> = ({ flights, code }) => {
   return (
     <div>
       <div className="sort">
@@ -17,7 +18,7 @@ const ListFlightTable: FC<FlightListProps> = ({ flights }) => {
       </div>
       <div className="flight-table">
         {flights.map((flight: Flight, index: number) => (
-          <FlightRow key={index} flight={flight} />
+          <FlightRow key={index} flight={flight} code={code} />
         ))}
       </div>
     </div>

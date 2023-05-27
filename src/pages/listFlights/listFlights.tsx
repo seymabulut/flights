@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./listFlights.scss";
 import ListFlightTable from "../../components/listFlightTable/listFlightTable";
 import SwitchButton from "../../components/switch/switch";
-import { Flight, Subcategory } from "../../interface/flight";
+import { Flight } from "../../interface/flight";
 
 const ListFlights: FC = () => {
   const location = useLocation();
@@ -40,8 +40,16 @@ const ListFlights: FC = () => {
         </div>
         <div style={{ marginBottom: "20px" }}>
           <SwitchButton setValue={(value: boolean) => setCode(value)} />
+          <div className="code_message">
+            Promosyon Kodu seçeneği ile tüm Economy kabini Eco Fly paketlerini
+            %50 indirim ile satın alabilirsiniz!
+          </div>
+          <div className="code_message">
+            Promosyon Kodu seçeneği aktifken Eco FLy paketi haricinde seçim
+            yapılamamaktadır.
+          </div>
         </div>
-        <ListFlightTable flights={flights} />
+        <ListFlightTable flights={flights} code={code} />
       </div>
     </div>
   );
