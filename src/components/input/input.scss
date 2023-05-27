@@ -1,0 +1,11 @@
+.search-input {
+  margin-right: 5px;
+  height: 35px;
+  padding: 3px 5px;
+  font-size: 14px;
+  // background-color: rgb(96 105 119 / 60%);
+
+  &:focus {
+    outline: none;
+  }
+}

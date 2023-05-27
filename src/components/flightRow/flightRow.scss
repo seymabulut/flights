@@ -1,0 +1,99 @@
+.flight-select {
+  padding: 15px;
+}
+
+.flight-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+
+  &__fare {
+    flex: 5;
+    max-width: 23%;
+    height: 105px;
+    font-size: 10px;
+    text-align: left;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+    padding: 20px 10px;
+    margin-left: 10px;
+
+    .fare-radio {
+      .MuiTypography-root {
+        color: grey;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.fare-price {
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+  }
+
+  &__price {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.airport {
+  flex: 10;
+  height: 105px;
+  padding: 20px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__flight_times {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #5c5c5c;
+  }
+}
+
+.flight-duration {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #5c5c5c;
+  float: right;
+}
+
+.line {
+  width: 70%;
+  height: 0;
+  border: 1px solid #c4c4c4;
+  margin: 3px;
+  display: inline-block;
+}
+
+.fare-category {
+  display: flex;
+  background-color: #fff;
+  padding: 15px;
+}

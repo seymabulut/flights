@@ -1,0 +1,27 @@
+.list-flight {
+  background-color: #fff;
+  height: 100vh;
+  padding-top: 5%;
+
+  &__table {
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+  }
+
+  &__header {
+    background-color: red;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding: 5px 20px;
+  }
+}
+
+.flight-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #5c5c5c;
+}

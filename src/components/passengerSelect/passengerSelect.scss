@@ -1,0 +1,66 @@
+.passenger-select {
+  position: relative;
+  background-color: #052a40;
+  color: white;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  width: 80px;
+
+  &__button {
+    border: none;
+    background: transparent;
+    fill: white;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  &__count {
+    color: white;
+    margin-left: 5px;
+  }
+}
+
+.select-menu {
+  width: 270px;
+  height: 150px;
+  position: absolute;
+  top: 100%;
+  left: -120px;
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  // ::after {
+  //   display: block;
+  //   position: absolute;
+  //   content: "";
+  //   width: 0;
+  //   height: 0;
+  //   top: 0;
+  //   left: 50%;
+  //   border-style: solid;
+  //   border-width: 6px 6px 0 6px;
+  //   border-color: #000 transparent transparent transparent;
+  // }
+
+  &__header {
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  &__counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
