@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./listFlights.scss";
 import ListFlightTable from "../../components/listFlightTable/listFlightTable";
 import SwitchButton from "../../components/switch/switch";
-import { Flight } from "../../interface/flight";
+import { Flight, Subcategory } from "../../interface/flight";
 
 const ListFlights: FC = () => {
   const location = useLocation();
@@ -26,7 +26,7 @@ const ListFlights: FC = () => {
       localStorage.getItem("count") ? Number(localStorage.getItem("count")) : 1
     );
     setFlights(location.state.flights);
-  }, []);
+  }, [location.state.flights]);
 
   return (
     <div className="list-flight">

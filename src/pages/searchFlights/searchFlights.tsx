@@ -1,8 +1,12 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import "./searchFlights.scss";
 import Search from "../../components/search/search";
 
 const SearchFlights: FC = () => {
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
   return (
     <div className="search-flight">
       <div className="search-flight__container">

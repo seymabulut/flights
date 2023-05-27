@@ -4,7 +4,7 @@ import { Subcategory } from "../../interface/flight";
 
 interface FareCardProps {
   subcategory: Subcategory;
-  select: (value: string) => void;
+  select: (value: string, price: string) => void;
 }
 
 const FareCard: FC<FareCardProps> = ({ subcategory, select }) => {
@@ -26,7 +26,15 @@ const FareCard: FC<FareCardProps> = ({ subcategory, select }) => {
         </ul>
       </div>
       <div className="fare-selector__footer">
-        <button className="button" onClick={() => select(subcategory.status)}>
+        <button
+          className="button"
+          onClick={() =>
+            select(
+              subcategory.status,
+              `${subcategory.price.currency} ${subcategory.price.amount}`
+            )
+          }
+        >
           Uçuşu seç
         </button>
       </div>

@@ -19,7 +19,7 @@ const Search: FC = () => {
 
   useEffect(() => {
     setFlightList(flights.flights);
-  }, [flights]);
+  }, []);
 
   const search = () => {
     const searchFlights = flightList.filter(
@@ -33,7 +33,10 @@ const Search: FC = () => {
       localStorage.setItem("to", to);
       localStorage.setItem("count", String(passengerCount));
       navigate(routes.listFlights, { state: { flights: searchFlights } });
+      return;
     }
+
+    alert("Seçilen konumlar bulunmamaktadır.");
   };
 
   return (

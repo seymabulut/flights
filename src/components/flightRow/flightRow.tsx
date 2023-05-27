@@ -26,8 +26,9 @@ const FlightRow: FC<FlightRowProps> = ({ flight }) => {
     setFare(event.target.value);
   };
 
-  const handleSelect = (status: string) => {
+  const handleSelect = (status: string, price: string) => {
     localStorage.setItem("status", status);
+    localStorage.setItem("price", price);
     navigate(routes.result);
   };
 
@@ -53,24 +54,26 @@ const FlightRow: FC<FlightRowProps> = ({ flight }) => {
             <div>{flight.flightDuration}</div>
           </div>
         </div>
-        {Object.keys(flight.fareCategories).map((key) => (
-          <div className="flight-row__fare" key={key}>
-            <FormControlLabel
-              value={key}
-              control={<Radio />}
-              label={key}
-              className="fare-radio"
-              checked={fare === key}
-              onClick={handleFareChange}
-            />
-            <div className="fare-price">
-              <span className="fare-price__text">Yolcu Başına</span>
-              <span className="fare-price__price">
-                {getDisplayPrice(flight.fareCategories[key].subcategories)}
-              </span>
+        {Object.keys(flight.fareCategories).map(
+          (key: string, index: number) => (
+            <div className="flight-row__fare" key={index}>
+              <FormControlLabel
+                value={key}
+                control={<Radio />}
+                label={key}
+                className="fare-radio"
+                checked={fare === key}
+                onClick={handleFareChange}
+              />
+              <div className="fare-price">
+                <span className="fare-price__text">Yolcu Başına</span>
+                <span className="fare-price__price">
+                  {getDisplayPrice(flight.fareCategories[key].subcategories)}
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
       <div className="fare-category">
         {fare &&
