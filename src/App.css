@@ -1,1 +1,12 @@
+.app_header {
+  position: absolute;
+  padding: 10px;
+  width: 95%;
+}
 
+.text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #c7c7c7;
+}
